@@ -1,0 +1,27 @@
+{
+  "name": "simple-task-manager-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souptik4572/Simple-Task-Manager-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/souptik4572/Simple-Task-Manager-Backend/issues"
+  },
+  "homepage": "https://github.com/souptik4572/Simple-Task-Manager-Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.8"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
