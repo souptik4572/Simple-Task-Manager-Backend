@@ -23,7 +23,10 @@ router.post('/register', async (req, res) => {
 		});
 		return res.status(201).json({
 			success: true,
-			newUser,
+			user: {
+				name: newUser.name,
+				email: newUser.email,
+			},
 		});
 	} catch (error) {
 		return res.status(404).json({
