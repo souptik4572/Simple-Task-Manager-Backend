@@ -44,7 +44,19 @@ router.post('/', async (req, res) => {
 router.delete('/:todoId', async (req, res) => {
 	const { taskId, todoId } = req.params;
 	try {
-        
+		const todo = await Todo.findByIdAndDelete(todoId);
+		await Task.updateOne(
+			{ _id: taskId },
+			{
+				$pull: {
+					todos: todoId,
+				},
+			}
+		);
+		return res.status(200).json({
+			success: true,
+			todo,
+		});
 	} catch (error) {
 		return res.status(404).json({
 			success: false,
