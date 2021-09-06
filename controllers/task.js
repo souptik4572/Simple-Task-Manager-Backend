@@ -3,7 +3,7 @@ const Todo = require('../models/Todo');
 
 const getAllTasks = async (req, res) => {
 	try {
-		const tasks = await Task.find({}).populate('Todo');
+		const tasks = await Task.find({}).populate('todos');
 		return res.status(200).json({
 			success: true,
 			tasks,
@@ -57,12 +57,11 @@ const editExistingTask = async (req, res) => {
 const deleteExistingTask = async (req, res) => {
 	const { taskId } = req.params;
 	try {
-		const deletedTodos = await Todo.deleteMany({ parentTask: taskId });
+		await Todo.deleteMany({ parentTask: taskId });
 		const deletedTask = await Task.findByIdAndDelete(taskId);
 		return res.status(200).json({
 			success: true,
 			task: deletedTask,
-			deletedTodos,
 		});
 	} catch (error) {
 		return res.status(404).json({
