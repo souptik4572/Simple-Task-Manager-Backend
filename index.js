@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const configureMongoose = require('./config/configureMongoose');
 const authenticationRoutes = require('./routes/authentication');
 const taskRoutes = require('./routes/task');
@@ -9,6 +10,8 @@ const { authProtection } = require('./middlewares/authStrategy');
 configureMongoose();
 
 const app = express();
+
+app.use(cors());
 
 // Our express body-parser middleware
 app.use(express.json());
